@@ -1,0 +1,131 @@
+﻿<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>viwi</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;400;500&display=swap');
+
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  background: linear-gradient(135deg, #1c284e, #4b6cb7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Poppins', sans-serif;
+  color: white;
+}
+
+.container { text-align:center; }
+
+h1 {
+  font-family: 'Dancing Script', cursive;
+  font-size: 75px;
+  margin-bottom: 10px;
+  transition: all 0.5s;
+}
+
+.subtext {
+  font-size: 18px;
+  font-style: italic;
+  opacity: 0.85;
+  margin-bottom: 18px;
+  transition: all 0.5s;
+}
+
+.btn {
+  margin-top: 12px;
+  padding: 12px 35px;
+  background: rgba(255,255,255,0.18);
+  border: 1px solid white;
+  border-radius: 30px;
+  text-decoration: none;
+  color: white;
+  font-size: 18px;
+  backdrop-filter: blur(5px);
+  transition: all 0.3s;
+  display: inline-block;
+  cursor: pointer;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.btn:hover { background: rgba(255,255,255,0.35); }
+#startBtn { opacity: 1; transform: translateY(0); }
+
+.fade-in { animation: fadeIn 1s forwards; }
+@keyframes fadeIn {
+  to { opacity: 1; transform: translateY(0); }
+}
+</style>
+</head>
+
+<body>
+<div class="container">
+  <h1 id="title">22 sept</h1>
+  <p id="subtext" class="subtext">
+    senang bisa mengenal mu 👋🏻<br>
+    bagian dari dirimu akan selalu tinggal di sini.
+  </p>
+
+  <button id="startBtn" class="btn">▶ Putar Musik</button>
+
+  <div id="navBtns">
+    <a href="music.html" class="btn">i am here</a><br>
+    <a href="gallery.html" class="btn">us</a>
+  </div>
+</div>
+
+<audio id="musik" loop>
+  <source src="ifU.mp3" type="audio/mpeg">
+</audio>
+<script>
+const audio = document.getElementById('musik');
+const startBtn = document.getElementById('startBtn');
+const navBtns = document.getElementById('navBtns');
+const title = document.getElementById('title');
+const subtext = document.getElementById('subtext');
+
+// sembunyikan tombol navigasi awal
+const navButtons = navBtns.querySelectorAll('.btn');
+navButtons.forEach(btn => {
+  btn.style.opacity = 0;
+  btn.style.transform = 'translateY(20px)';
+});
+
+// <-- BAGIAN TAMBAHAN: cek hash #nav -->
+if(window.location.hash === '#nav'){
+    startBtn.style.display = 'none';
+    navBtns.style.display = 'block';
+    title.textContent = "hi stranger <3 .ᐟ";
+    subtext.innerHTML = "jejakmu tetap menari di antara detikku.";
+    navButtons.forEach((btn,index)=>{
+      setTimeout(()=>{ btn.classList.add('fade-in'); }, index*300);
+    });
+}
+
+// klik tombol putar musik
+startBtn.addEventListener('click', ()=>{
+  audio.play();
+  startBtn.style.display='none';
+  title.textContent = "hi stranger <3 .ᐟ";
+  subtext.innerHTML = "jejakmu tetap menari di antara detikku.";
+  navButtons.forEach((btn,index)=>{
+    setTimeout(()=>{ btn.classList.add('fade-in'); }, index*300);
+  });
+  localStorage.setItem('musicStarted','true');
+});
+
+// autoplay jika musik sudah dimulai
+if(localStorage.getItem('musicStarted')==='true'){
+  audio.muted=true;
+  audio.play().then(()=>{ audio.muted=false; }).catch(()=>{});
+}
+</script>
+
+</body>
+</html>

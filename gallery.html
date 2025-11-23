@@ -1,0 +1,120 @@
+﻿<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>us</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;400;500&display=swap');
+
+body {
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(135deg, #1c284e, #4b6cb7);
+  font-family: 'Poppins', sans-serif;
+  color: white;
+  text-align: center;
+  padding: 50px 20px;
+}
+
+h1 {
+  font-family: 'Dancing Script', cursive;
+  font-size: 55px;
+  margin-bottom: 10px;
+}
+
+.subtext {
+  font-size: 18px;
+  opacity: 0.85;
+  font-style: italic;
+  margin-bottom: 30px;
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+  max-width: 1000px;
+  margin: auto;
+}
+
+.gallery img {
+  width: 100%;
+  height: 230px;
+  object-fit: cover;
+  border-radius: 15px;
+  transition: 0.3s;
+}
+
+.gallery img:hover {
+  transform: scale(1.05);
+}
+
+.btn-back {
+  margin-top: 30px;
+  padding: 12px 35px;
+  background: rgba(255,255,255,0.18);
+  border: 1px solid white;
+  border-radius: 30px;
+  text-decoration: none;
+  color: white;
+  font-size: 18px;
+  backdrop-filter: blur(5px);
+  transition: 0.3s;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.btn-back:hover {
+  background: rgba(255,255,255,0.35);
+}
+</style>
+</head>
+
+<body>
+
+<!-- Audio -->
+<audio id="musik" loop>
+  <source src="ifU.mp3" type="audio/mpeg">
+</audio>
+
+<h1>memories</h1>
+<p class="subtext">semua cerita indah itu masih tersimpan rapi</p>
+
+<div class="gallery">
+  <img src="duo1.jpg">
+  <img src="duo2.jpg">
+  <img src="duo3.jpg">
+  <img src="duo4.jpg">
+  <img src="duo5.jpg">
+  <img src="duo6.jpg">
+  <img src="duo7.jpg">
+  <img src="duo8.jpg">
+  <img src="duo11.jpg">
+</div>
+
+<!-- Tombol Kembali -->
+<button class="btn-back">← Kembali</button>
+
+<script>
+window.onload = function() {
+  const audio = document.getElementById('musik');
+
+  // autoplay musik jika sebelumnya sudah dimulai
+  if (localStorage.getItem('musicStarted') === 'true') {
+    audio.muted = true;
+    audio.play().then(() => {
+      audio.muted = false;
+    }).catch(()=>{});
+  }
+
+  // tombol kembali ke viwi.html bagian navigasi
+  document.querySelector('.btn-back').addEventListener('click', () => {
+    window.location.href = "4ever.html#nav";
+  });
+};
+</script>
+
+</body>
+</html>

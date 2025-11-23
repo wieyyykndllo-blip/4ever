@@ -1,0 +1,109 @@
+﻿<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>i am here</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;400;500&display=swap');
+
+body {
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(135deg, #1c284e, #4b6cb7);
+  font-family: 'Poppins', sans-serif;
+  color: white;
+  text-align: center;
+  padding: 50px 20px;
+}
+
+h1 {
+  font-family: 'Dancing Script', cursive;
+  font-size: 55px;
+  margin-bottom: 5px;
+}
+
+.subtext {
+  font-size: 18px;
+  opacity: 0.85;
+  font-style: italic;
+  margin-bottom: 30px;
+}
+
+.text-box {
+  max-width: 850px;
+  margin: auto;
+  font-size: 20px;
+  line-height: 1.7;
+  font-style: italic;
+  opacity: 0.95;
+}
+
+.btn-back {
+  margin-top: 35px;
+  padding: 12px 35px;
+  background: rgba(255,255,255,0.18);
+  border: 1px solid white;
+  border-radius: 30px;
+  text-decoration: none;
+  color: white;
+  font-size: 18px;
+  backdrop-filter: blur(5px);
+  transition: 0.3s;
+  display: inline-block;
+}
+
+.btn-back:hover {
+  background: rgba(255,255,255,0.35);
+}
+</style>
+</head>
+
+<body>
+
+<!-- Audio -->
+<audio id="musik" loop>
+  <source src="ifU.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+const audio = document.getElementById('musik');
+
+// Jika musik sudah dimulai dari viwi.html maka play otomatis
+if (localStorage.getItem('musicStarted') === 'true') {
+  audio.muted = true;
+  audio.play().then(() => {
+    audio.muted = false;
+  }).catch(() => {});
+}
+</script>
+
+<h1>for my 24/7</h1>
+<p class="subtext">sebuah ruang kecil untuk hal-hal yang tak sempat tersampaikan.</p>
+
+<div class="text-box">
+Kenyataannya sebanyak apapun caraku utk bisa lupain kau, bakal tetap ka kangen.. kangen semuanya tentang kau dan kita. bohonggg.. bohong kalau saya tdk peduli, bohong kalau saya tdk khawatir, bohong kalau saya bahagia setelah putus dari kau.<br><br> 
+	
+sedih sekali rasanya klo seingat kembali bagaimana kau putuskan saya betul" setidak berharga ituka huhh, egoiss.. kau cuma liat bagaimana sakit hatimu, tapi disisi lain manusia ja juga punya ka juga perasaan :( tiap hari secoba untuk bisa ngerti semuanya yg kau mau, secoba untuk jadi lebih baik lagi tapi tetap ja jahat dimata mu huftt.<br><br>
+    
+kau sudah janji waktu itu, ko tdk mau tinggalkan saya tp apa? ko ingkari, malah sama ko yg lain?!!
+untuk apa ji ple selama ini? untuk apa? untuk apa ko kasih ka harapan, untuk apa datang ke saya minta saya jadi pasangan mu?<br><br>
+
+maaf, maaf, maaf cuma itu yang bisa ko bilang tapi cuma omong kosong. maaf tanpa perubahan, dan pergi tanpa rasa bersalah. tanpa kau minta maaf saya sudah maafkan ji karena yang saya mau cuma kau berubah jadi lebih baik lagi.. <br><br>
+coba bayangkan klo kau bisa untuk sedikit lebih dewasa, berarti sudah 1.158 hari (3 tahun 62 hari) kita lewati sama sama dan bagaimana klo berlanjut tahun depan? sebahagia apa? :( <br><br>
+ 
+segampang itu ya untuk kau lupain saya (?) sedangkan saya disini masih terjebak perasaan masa lalu... bahkan klo kau balik, saya harap itu penyesalan yang sesungguhnya.<br><br>
+tidakpapa saya menunggu sampai perasaan ku benaran hilang daripada sama orang baru tapi perasaan ku masih tetap disini :)
+</div>
+
+<button id="backBtn" class="btn-back">← kembali</button>
+
+<script>
+document.getElementById('backBtn').addEventListener('click', () => {
+  window.location.href = "4ever.html#nav";
+});
+</script>
+
+</body>
+</html>
